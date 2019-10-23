@@ -1,0 +1,15 @@
+<div ng-controller="templateCtrl">
+	<link rel="stylesheet"  href="css/{{template}}.min.css">
+	<div class="container">
+		<div class="page-header">
+			<h1 class="text-center">Wybór styli Css</h1>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<select class="form-control" ng-model="template" ng-change="selectTemplate(template)">
+        			<option ng-repeat="name in [ 'default','cerulean','cosmo','cyborg', 'darkly', 'flatly','journal','lumen','paper','readable','sandstone','simplex','slate','spacelab','superhero','united','yeti' ]">{{name}}</option>
+      			</select>
+			</div>		
+		</div>
+	</div>
+</div>

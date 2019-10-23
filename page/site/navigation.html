@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#/home">ngShop</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ng-class="{ active : isActive( '/products' ) }"><a href="#/products">Produkty</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-if="cart" ng-class="{ active : isActive( '/cart' ) }"><a href="#/cart">Koszyk</a></li>
+        <li ng-class="{ active : isActive( '/orders' ) }" ng-if="loggedIn"><a href="#/orders">Zamówienia</a></li>
+        <li ng-class="{ active : isActive( '/login' ) }" ng-if="!loggedIn"><a href="#/login">Logowanie</a></li>
+        <li ng-class="{ active : isActive( '/admin' ) }" ng-if="isAdmin"><a href="#/admin/homeAdmin">Panel Administracyjny</a></li>
+        <li ng-class="{ active : isActive( '/register' ) }" ng-if="!loggedIn"><a href="#/register">Rejestracja</a></li>
+        <li ng-class="{ active : isActive( '/template' ) }"><a href="#/template">Template</a></li>
+        <li ng-class="{ active : isActive( '/logout' ) }" ng-if="loggedIn"><a href="" ng-click="logout()">Wyloguj się</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>

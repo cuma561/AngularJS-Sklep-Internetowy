@@ -1,0 +1,39 @@
+<div ng-controller="templateCtrl">
+  <link rel="stylesheet" href="css/{{template}}.min.css"/>
+<div class="container">
+  <div class="page-header">
+    <h1 class="text-center">Produkty</h1>
+  </div>
+  <div class="row">
+
+    <div class="col-xs-3 pull-right">
+    	<div class="form-group">
+    		<div class="input-group">
+    			<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+          		<input type="text" class="form-control" placeholder="szukaj..." ng-model="search">
+         	</div>
+        </div>
+    </div>
+
+  </div>
+  <div class="row" style="margin-top: 40px;">
+    <div class="col-sm-12">
+
+      <div class="panel panel-default" ng-repeat="product in products | filter : search">
+
+        <div class="panel-body" ng-init="checkCart( product )">
+          <h2><span class="label label-warning pull-right">{{product.price | number:2}} zł / kg</span></h2>
+            <h2><a href="#/product/{{product.id}}">{{product.name}}</a></h2>
+          <img src="uploads/{{product.id}}/{{product.thumb}}" alt="" class="img-responsive img-thumbnail" style="max-width:300px;">
+          <p>&nbsp;</p>
+          <p>{{product.description}}<br /><br />
+          <button ng-click="addToCart( product ); checkCart( product )" class="btn btn-primary">Dodaj do koszyka</button>
+          <a ng-if="product.qty" >W koszyku: {{product.qty}}</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

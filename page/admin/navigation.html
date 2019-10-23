@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home">ngShop</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li ng-class="{ active : isActive( '/homeAdmin' ) }"><a href="#/admin/homeAdmin">Strona główna panelu</a></li>
+              <li ng-class="{ active : isActive( '/products' ) }"><a href="#/admin/products">Produkty</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li ng-class="{ active : isActive( '/orders' ) }"><a href="#/admin/orders">Zamówienia</a></li>
+              <li ng-class="{ active : isActive( '/users' ) }"><a href="#/admin/users">Użytkownicy</a></li>
+              <li ng-class="{ active : isActive( '/templateAdmin' ) }"><a href="#/admin/templateAdmin">Template</a></li>
+              <li ng-class="{ active : isActive( '/login' ) }"><a href="" ng-click="logout()">Wyloguj się</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
