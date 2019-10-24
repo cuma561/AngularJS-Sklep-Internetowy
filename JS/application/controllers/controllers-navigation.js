@@ -4,7 +4,8 @@ var controllersNavigation = angular.module( 'controllersNavigation' , [] );
 
 //Kontroller nawigacji
 controllersNavigation.controller( 'navigation' , [ '$scope' , '$location' , 'cartSrv' , 'checkToken' , 'store' , function( $scope , $location , cartSrv , checkToken , store ){
-
+	// Sprawdznie czy jestes administratorem czy zwyklym userem jezeli jestes admin to po przejscu na panel admina pojawia sie 
+	// nawigacja z admina a jezeli nie to pojawia sie nawigacja z usera
 	$scope.navigation = function () {
 
 		if ( /^\/admin/.test( $location.path() ) )
