@@ -2,20 +2,20 @@
 
 var controllersSite = angular.module( 'controllersSite' , [] );
 
-
+/* Kontroller produktów */
 controllersSite.controller( 'siteProducts' , [ '$scope' , '$http' , 'cartSrv' , function( $scope , $http , cartSrv ){
-	
+	// Pobieranie z bazy danych produktów
 	$http.get( 'php/site/products/get' ).
 	success( function( data ){
 		$scope.products = data;
 	}).error( function(){
 		console.log( 'Błąd połączenia z baza danych' );
 	});
-
+	// Dodawanie produktu do koszyka
 	$scope.addToCart = function ( product ) {
 		cartSrv.add( product );
 	};
-
+	// Zliczanie ile w koszyku jest produktu
 	$scope.checkCart = function ( product ) {
 		if ( cartSrv.show().length )
 		{
@@ -30,23 +30,22 @@ controllersSite.controller( 'siteProducts' , [ '$scope' , '$http' , 'cartSrv' , 
 
 }]);
 
-
+// Kotnroller pojedynczego produktu
 controllersSite.controller( 'siteProduct' , [ '$scope' , '$http' , '$routeParams' , 'cartSrv' , function( $scope , $http , $routeParams , cartSrv ){
-
+	//Zmienna przechowujaca id produktu
 	var id = $routeParams.id;
-
+	// Pobieranie z bazy danych produktu
 	$http.post( 'php/site/products/get/' + id ).
 	success( function( data ){
 		$scope.product = data;
-		$scope.checkCart( $scope.product );
 	}).error( function(){
 		console.log( 'Błąd połączenia z baza danych' );
 	});
-
+	// Dodawanie produktu do koszyka
 	$scope.addToCart = function ( product ) {
 		cartSrv.add( product );
 	};
-
+	// Zliczanie ile w koszyku jest produktu
 	$scope.checkCart = function ( product ) {
 		if ( cartSrv.show().length )
 		{
@@ -59,7 +58,7 @@ controllersSite.controller( 'siteProduct' , [ '$scope' , '$http' , '$routeParams
 		}
 	}
 
-
+	// Fukcja pobierająca zdjęcia z bazy danych 
 	function getImages() {
 		$http.get( 'php/site/products/getImages/' + id ).
 		success( function( data ){
@@ -72,9 +71,9 @@ controllersSite.controller( 'siteProduct' , [ '$scope' , '$http' , '$routeParams
 
 }]);
 
-
+// Kontroller zamówień
 controllersSite.controller( 'siteOrders' , [ '$scope' , '$http' , 'checkToken' , function( $scope , $http , checkToken ){
-
+	// Pobieranie zamówień z bazy danych
 	$http.post( 'php/site/orders/get/' , {
 
 		token: checkToken.raw(),
@@ -95,7 +94,7 @@ controllersSite.controller( 'siteOrders' , [ '$scope' , '$http' , 'checkToken' ,
 
 }]);
 
-
+// Kontroller koszyka
 controllersSite.controller( 'cartCtrl' , [ '$scope' , '$http' , '$filter' , 'cartSrv' , 'checkToken' , function( $scope , $http , $filter , cartSrv , checkToken ){
 
 	$scope.cart = cartSrv.show();
