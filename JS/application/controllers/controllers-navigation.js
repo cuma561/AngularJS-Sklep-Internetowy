@@ -2,7 +2,7 @@
 
 var controllersNavigation = angular.module( 'controllersNavigation' , [] );
 
-
+//Kontroller nawigacji
 controllersNavigation.controller( 'navigation' , [ '$scope' , '$location' , 'cartSrv' , 'checkToken' , 'store' , function( $scope , $location , cartSrv , checkToken , store ){
 
 	$scope.navigation = function () {
@@ -43,15 +43,15 @@ controllersNavigation.controller( 'navigation' , [ '$scope' , '$location' , 'car
 
 	};
 
-
+	// Dodawanie klasy active do pojedynczego elementu nawigacji
 	$scope.isActive = function ( path ) {
 		return $location.path() === path;
 	};
-
+	// Wyświetlanie koszyka
 	$scope.$watch(function(){
 		$scope.cart = cartSrv.show().length;
 	});
-
+	// Funkcja wylogowywania ze sklepu
 	$scope.logout = function () {
 		checkToken.del();
 		location.reload();
