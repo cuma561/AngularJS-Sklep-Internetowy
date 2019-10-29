@@ -19,7 +19,13 @@ Wszystkie dane są zapisywane w bazie danych MYSQL oraz w localStorage
 
 # Podstawowe adane do logowania to: 
 
-Login:          Hasło:
-admin@admin.pl  admin
-user@user.pl    user
-testowy@test.pl test
+Login:          
+1) admin@admin.pl  
+2) user@user.pl    
+3) testowy@test.pl
+
+Hasło:
+1) admin
+2) user
+3) test
+
