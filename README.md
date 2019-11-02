@@ -17,7 +17,7 @@ Wszystkie dane są zapisywane w bazie danych MYSQL oraz w localStorage
 2) Wjeść do pustej nowo utworzonej bazy i wybrać z górengo menu import
 3) Wybrać bazę danych i na dole kliknąć import
 
-# Podstawowe adane do logowania to: 
+# Podstawowe dane do logowania to: 
 
 Login:          
 1) admin@admin.pl  
