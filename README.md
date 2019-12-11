@@ -14,7 +14,7 @@ Wszystkie dane są zapisywane w bazie danych MYSQL oraz w localStorage
 # Jak skopiować bazę danych
 
 1) Utworzyć bazę danych 
-2) Wjeść do pustej nowo utworzonej bazy i wybrać z górengo menu import
+2) Wejść do pustej nowo utworzonej bazy i wybrać z górengo menu import
 3) Wybrać bazę danych i na dole kliknąć import
 
 
